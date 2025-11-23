@@ -15,7 +15,7 @@ O objetivo do jogo é revelar casas no tabuleiro sem atingir uma mina.
 O software utiliza primitivas de sincronização da biblioteca `pthread` para gerenciar a concorrência entre o jogador e o Bot:
 
 * **Threads (`pthread_t`):** Duas threads separadas são criadas, uma para controlar o fluxo do Humano e outra para o Bot.
-* **Semáforos (`sem_t`):** Utilizados para coordenar os turnos. [cite_start]Os semáforos garantem a exclusão mútua no acesso ao tabuleiro (região crítica) e impõem a ordem de jogada (Humano -> Bot -> Humano...).
+* **Semáforos (`sem_t`):** Utilizados para coordenar os turnos. Os semáforos garantem a exclusão mútua no acesso ao tabuleiro (região crítica) e impõem a ordem de jogada (Humano -> Bot -> Humano...).
 
 ## Pré-requisitos
 
