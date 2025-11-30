@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pthread -O3
+CFLAGS = -Wall -Wextra -pthread -O2
 OBJS = main.o tabuleiro.o jogadores.o
 
 all: campo_minado

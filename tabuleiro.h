@@ -1,10 +1,12 @@
 #ifndef TABULEIRO_H
 #define TABULEIRO_H
 
+// Configuraçoes do jogo
 #define TAB_LINHAS 9
 #define TAB_COLUNAS 9
 #define TAB_MINAS 10
 
+// Codigos de retorno
 #define TABULEIRO_EXPLODIU -3
 #define TABULEIRO_JA_REVELADO -1
 #define TABULEIRO_FORA -2

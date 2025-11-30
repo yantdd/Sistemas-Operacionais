@@ -3,8 +3,8 @@
 #include <time.h>
 #include "tabuleiro.h"
 
-static int tab[TAB_LINHAS][TAB_COLUNAS];
-static int revelado[TAB_LINHAS][TAB_COLUNAS];
+static int tab[TAB_LINHAS][TAB_COLUNAS]; // Matriz com os valores (-1 mina, 0 vazio, N vizinhos)
+static int revelado[TAB_LINHAS][TAB_COLUNAS]; // Mascara de visibilidade (0 oculto, 1 revelado)
 static int restantes = TAB_LINHAS * TAB_COLUNAS - TAB_MINAS;
 
 static int dentro(int l, int c) {
@@ -21,6 +21,7 @@ static int contar_vizinhos(int l, int c) {
     return n;
 }
 
+// Para abrir áreas vazias (zeros) adjacentes
 static void expandir(int l, int c) {
     if (!dentro(l,c)) return;
     if (revelado[l][c]) return;
@@ -35,14 +36,18 @@ static void expandir(int l, int c) {
     }
 }
 
+// Prepara o tabuleiro e distribui minas
 void tabuleiro_iniciar() {
     srand(time(NULL));
 
+    // Zera tudo
     for (int i=0;i<TAB_LINHAS;i++)
         for (int j=0;j<TAB_COLUNAS;j++)
             tab[i][j]=0, revelado[i][j]=0;
 
     int colocadas = 0;
+
+    // Coloca as minas aleatoriamente
     while (colocadas < TAB_MINAS) {
         int l = rand() % TAB_LINHAS;
         int c = rand() % TAB_COLUNAS;
